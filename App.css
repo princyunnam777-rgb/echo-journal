@@ -1,0 +1,475 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fa;
+  color: #17243a;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.topbar {
+  background: #101e35;
+  color: white;
+  padding: 17px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: #b7c3d4;
+  font-size: 12px;
+}
+
+.small-logo, .logo-mark {
+  background: #dce5f2;
+  color: #142641;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  border-radius: 12px;
+}
+
+.small-logo {
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+}
+
+nav {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-btn, .lock-btn {
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 7px;
+  background: transparent;
+  color: #dce5f2;
+}
+
+.nav-btn.active {
+  background: #263a58;
+  color: white;
+}
+
+.lock-btn {
+  background: #e7edf5;
+  color: #142641;
+}
+
+.main-content {
+  width: min(1120px, 90%);
+  margin: 35px auto;
+}
+
+.welcome {
+  margin-bottom: 25px;
+}
+
+.eyebrow {
+  color: #71829a;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0 0 10px;
+}
+
+.welcome h1, .memories-page h1 {
+  font-size: clamp(26px, 4vw, 34px);
+  margin: 0 0 9px;
+  color: #142641;
+}
+
+.welcome > p:last-child, .memories-intro {
+  color: #718096;
+  margin: 0;
+}
+
+.affirmation-card {
+  background: #142641;
+  color: white;
+  padding: 25px 30px;
+  border-radius: 13px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 18px #15264012;
+}
+
+.affirmation-card .eyebrow {
+  color: #b8c7dc;
+}
+
+.affirmation-card h2 {
+  font-size: clamp(18px, 3vw, 23px);
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.affirmation-date {
+  color: #b8c7dc;
+  font-size: 12px;
+  margin: 12px 0 0;
+}
+
+.journal-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #e2e7ef;
+  border-radius: 12px;
+  padding: 23px;
+  box-shadow: 0 4px 16px #15264008;
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.month-controls {
+  display: flex;
+  gap: 7px;
+}
+
+.month-controls button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #dce3ed;
+  background: white;
+  color: #142641;
+  border-radius: 6px;
+  font-size: 21px;
+}
+
+.month-title {
+  font-size: 15px;
+  margin: 22px 0 15px;
+  color: #34445b;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.weekday {
+  text-align: center;
+  color: #8290a3;
+  font-size: 11px;
+  padding: 7px 0;
+}
+
+.calendar-day {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 7px;
+  background: #f4f6fa;
+  color: #34445b;
+}
+
+.calendar-day:hover {
+  background: #e4eaf3;
+}
+
+.calendar-day.selected {
+  background: #142641;
+  color: white;
+}
+
+.calendar-day.today {
+  outline: 1px solid #526b91;
+}
+
+.entry-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #3976c6;
+  border-radius: 50%;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.calendar-day.selected .entry-dot {
+  background: white;
+}
+
+.calendar-hint {
+  font-size: 11px;
+  color: #8491a3;
+  margin: 15px 0 0;
+}
+
+.field-label {
+  display: block;
+  color: #44536a;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 18px 0 7px;
+}
+
+.date-input, .text-input, .journal-textarea, .pin-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  background: white;
+  color: #17243a;
+  outline: none;
+}
+
+.date-input:focus, .text-input:focus, .journal-textarea:focus,
+.pin-input:focus {
+  border-color: #526f9a;
+  box-shadow: 0 0 0 2px #526f9a18;
+}
+
+.journal-textarea {
+  min-height: 210px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.primary-btn, .delete-btn {
+  border: 0;
+  border-radius: 7px;
+  padding: 11px 17px;
+  font-weight: bold;
+}
+
+.primary-btn {
+  background: #142641;
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #263d5e;
+}
+
+.delete-btn {
+  background: #fbeeee;
+  color: #a83b3b;
+}
+
+.footer {
+  text-align: center;
+  padding: 22px 12px;
+  color: #8793a4;
+  font-size: 12px;
+}
+
+.lock-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: #101e35;
+}
+
+.lock-card {
+  width: min(390px, 100%);
+  background: white;
+  border-radius: 15px;
+  padding: 35px;
+  text-align: center;
+}
+
+.logo-mark {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 15px;
+  font-size: 28px;
+}
+
+.lock-card h1 {
+  margin: 0;
+  color: #142641;
+}
+
+.subtitle, .muted {
+  color: #77869a;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.lock-card h2 {
+  margin: 28px 0 5px;
+  color: #142641;
+}
+
+.pin-input {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 10px;
+  margin: 15px 0;
+}
+
+.full-btn {
+  width: 100%;
+}
+
+.lock-note {
+  font-size: 11px;
+  color: #8b96a5;
+  margin-top: 20px;
+}
+
+.memories-page {
+  min-height: 65vh;
+}
+
+.search-area {
+  max-width: 350px;
+  margin: 25px 0;
+}
+
+.clear-btn {
+  margin-top: 9px;
+  border: 0;
+  background: none;
+  color: #526f9a;
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.memory-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.memory-card {
+  text-align: left;
+  background: white;
+  border: 1px solid #e2e7ef;
+  border-radius: 11px;
+  padding: 20px;
+  color: #17243a;
+  min-width: 0;
+}
+
+.memory-card:hover {
+  border-color: #8195b2;
+}
+
+.memory-date {
+  color: #71829a;
+  font-size: 12px;
+}
+
+.memory-card h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.memory-card p {
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.read-more {
+  color: #526f9a;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.empty-state {
+  text-align: center;
+  background: white;
+  padding: 40px 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e7ef;
+}
+
+.empty-state p {
+  color: #718096;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 750px) {
+  .journal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .memory-list {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .nav-btn, .lock-btn {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .main-content {
+    margin-top: 25px;
+  }
+}
